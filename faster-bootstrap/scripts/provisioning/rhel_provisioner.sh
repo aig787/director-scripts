@@ -30,7 +30,14 @@ gpgcheck=1
 REPO
 sudo rpm --import "${CM_GPG_KEY}"
 echo "Installing Oracle JDK and CM"
-sudo yum -y install "oracle-j2sdk${JAVA_VERSION}" cloudera-manager-agent cloudera-manager-daemons cloudera-manager-server cloudera-manager-server-db-2
+
+if [ "$JAVA_VERSION" = "1.8" ]; then
+  sudo bash /tmp/java8-bootstrap-script.sh
+else
+  sudo yum -y install "oracle-j2sdk${JAVA_VERSION}"
+fi
+
+sudo yum -y install cloudera-manager-agent cloudera-manager-daemons cloudera-manager-server cloudera-manager-server-db-2
 
 # Define service_control
 . /tmp/service_control.sh

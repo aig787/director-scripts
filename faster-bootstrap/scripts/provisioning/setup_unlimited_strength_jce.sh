@@ -21,7 +21,7 @@ case $JAVA_VERSION in
     POLICY_ZIP="UnlimitedJCEPolicyJDK7.zip"
     ;;
   1.8)
-    JAVA_PACKAGE=oracle-j2sdk1.8
+    JAVA_PACKAGE=$(rpm -qa | grep jdk1.8 | head -n 1)
     JAVA_PREFIX="/usr/java/jdk1.8"
     POLICY_ZIP="jce_policy-8.zip"
     ;;

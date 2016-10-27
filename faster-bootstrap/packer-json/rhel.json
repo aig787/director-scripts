@@ -74,6 +74,11 @@
         "destination": "/tmp"
     },
     {
+        "type": "file",
+        "source": "../java8/java8-bootstrap-script.sh",
+        "destination": "/tmp/java8-bootstrap-script.sh"
+    },
+    {
         "type": "shell",
         "scripts": ["scripts/provisioning/rhel_provisioner.sh",
                     "scripts/provisioning/setup_unlimited_strength_jce.sh",
